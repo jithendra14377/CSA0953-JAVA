@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class EvenFibonacciSum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the limit (N) for Fibonacci series: ");
+        int limit = scanner.nextInt();
+
+        // Calculate and display the sum of even Fibonacci numbers
+        long evenFibonacciSum = calculateEvenFibonacciSum(limit);
+        System.out.println("Sum of even Fibonacci numbers till " + limit + ": " + evenFibonacciSum);
+    }
+
+    // Function to calculate the sum of even Fibonacci numbers
+    private static long calculateEvenFibonacciSum(int limit) {
+        long sum = 0;
+        long fib1 = 0;
+        long fib2 = 1;
+
+        while (fib2 <= limit) {
+            if (fib2 % 2 == 0) {
+                sum += fib2;
+            }
+
+            long nextFib = fib1 + fib2;
+            fib1 = fib2;
+            fib2 = nextFib;
+        }
+
+        return sum;
+    }
+}
