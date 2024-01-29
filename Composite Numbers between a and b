@@ -1,0 +1,30 @@
+public class CompositeNumbersInRange {
+    public static void main(String[] args) {
+        int a = 12;
+        int b = 19;
+
+        // Call the function to print composite numbers in the range
+        printCompositeNumbersInRange(a, b);
+    }
+
+    private static boolean isComposite(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void printCompositeNumbersInRange(int start, int end) {
+        System.out.println("Composite Numbers between " + start + " and " + end + ":");
+        for (int i = start; i <= end; i++) {
+            if (isComposite(i)) {
+                System.out.println(i);
+            }
+        }
+    }
+}
