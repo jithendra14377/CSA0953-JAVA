@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class NumberOfFactors {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        int number = scanner.nextInt();
+        int numOfFactors = calculateFactors(number);
+
+        System.out.println("Number of factors = " + numOfFactors);
+
+        scanner.close();
+    }
+
+    private static int calculateFactors(int num) {
+        int count = 0;
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
